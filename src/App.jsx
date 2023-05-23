@@ -4,7 +4,6 @@ import InputList from './components/Input/InputList';
 import ShoppingList from './components/ShoppingList/ShoppingList';
 
 function App() {
-  const [input, setInput] = useState('');
   const [listProd, setListProd] = useState([]);
 
   return (
@@ -17,12 +16,7 @@ function App() {
 
       <main>
         <ShoppingList listProd={listProd} />
-        <InputList
-          listProd={listProd}
-          setListProd={setListProd}
-          input={input}
-          setInput={setInput}
-        />
+        <InputList listProd={listProd} setListProd={setListProd} />
       </main>
     </div>
   );

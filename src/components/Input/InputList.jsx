@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
-export default function InputList({ listProd, setListProd, input, setInput }) {
-  const [id, setId] = useState(0);
+export default function InputList({ listProd, setListProd }) {
+  const [id, setId] = useState(0),
+    [nomeProd, setNomeProd] = useState('');
 
   const onSubmitForm = (e) => {
     e.preventDefault();
 
     setId(id + 1);
 
-    setListProd([...listProd, { idProd: id, nomeProd: input }]);
-    setInput('');
+    setListProd([...listProd, { idProd: id, nomeProd: nomeProd }]);
+    setNomeProd('');
   };
 
   return (
@@ -26,8 +27,8 @@ export default function InputList({ listProd, setListProd, input, setInput }) {
             type="text"
             className="form-control"
             id="item"
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
+            value={nomeProd}
+            onChange={(event) => setNomeProd(event.target.value)}
           />
         </div>
         <button type="submit" className="btn btn-success">
